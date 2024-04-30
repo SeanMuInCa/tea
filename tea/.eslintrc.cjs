@@ -28,6 +28,6 @@ module.exports = {
         "react"
     ],
     "rules": {
-        
+        'semi': ['warn', 'always']
     }
 };
