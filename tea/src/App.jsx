@@ -8,6 +8,7 @@ function App() {
   const handleClick = ()=>{
     setCount(count + 1)
   }
+  let c = 0;
   return (
     <>
       <div>
