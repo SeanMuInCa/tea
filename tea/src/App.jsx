@@ -9,6 +9,7 @@ function App() {
     setCount(count + 1)
   }
   let c = 0;
+  let b = 222
   return (
     <>
       <div>
