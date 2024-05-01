@@ -1,20 +1,20 @@
 <template>
     <div class="tabbar">
         <ul>
-            <li>
-                <House style="width: 2em; height: 2em; margin-right: 8px" />
+            <li @click="router.push('/')">
+                <HomeFilled style="width: 1rem; height: 1rem; " />
                 <span>Home</span>
             </li>
-            <li>
-                <House style="width: 2em; height: 2em; margin-right: 8px" />
+            <li @click="router.push('/list')">
+                <House style="width: 1rem; height: 1rem; "/>
                 <span>Home</span>
             </li>
-            <li>
-                <House style="width: 2em; height: 2em; margin-right: 8px" />
+            <li @click="router.push('/cart')">
+                <House style="width: 1rem; height: 1rem; " />
                 <span>Home</span>
             </li>
-            <li>
-                <House style="width: 2em; height: 2em; margin-right: 8px" />
+            <li @click="router.push('/profile')">
+                <House style="width: 1rem; height: 1rem; " />
                 <span>Home</span>
             </li>
         </ul>
@@ -22,18 +22,19 @@
 </template>
 
 <script setup lang="ts">
+import router from '@/router';
 
 </script>
-<script>
+<!-- <script lang="ts">
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: 'Tabbor'
 }
-</script>
+</script> -->
 <style scoped lang="scss">
 .tabbar{
     width: 100vw;
-    height: 2rem;
+    height: 1.5rem;
     background-color: red;
     position: fixed;
     bottom: 0;
@@ -49,6 +50,9 @@ export default {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            span{
+                font-size: .4rem;
+            }
         }
     }
 }
