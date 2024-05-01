@@ -1,7 +1,7 @@
 <template>
     <div>
-        home
-        <Tabbar></Tabbar>
+Profile
+<Tabbar></Tabbar>
     </div>
 </template>
 
@@ -9,4 +9,6 @@
 import Tabbar from '@/components/Tabbar.vue';
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
