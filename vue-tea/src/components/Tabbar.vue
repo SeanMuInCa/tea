@@ -1,21 +1,9 @@
 <template>
     <div class="tabbar">
         <ul>
-            <li @click="router.push('/')">
-                <HomeFilled style="width: 1rem; height: 1rem; " />
-                <span>Home</span>
-            </li>
-            <li @click="router.push('/list')">
-                <House style="width: 1rem; height: 1rem; "/>
-                <span>Home</span>
-            </li>
-            <li @click="router.push('/cart')">
-                <House style="width: 1rem; height: 1rem; " />
-                <span>Home</span>
-            </li>
-            <li @click="router.push('/profile')">
-                <House style="width: 1rem; height: 1rem; " />
-                <span>Home</span>
+            <li v-for="(item,index) in routes" :key="index">
+                <el-button :icon="item.icon" type="" circle  size="large"></el-button>
+                <span>{{ item.title }}</span>
             </li>
         </ul>
     </div>
@@ -24,6 +12,32 @@
 <script setup lang="ts">
 import router from '@/router';
 
+const routes = [
+    {
+        title:'Home',
+        icon:'House',
+        selected:'HomeFilled',
+        path:'/'
+    },
+    {
+        title:'Category',
+        icon:'Document',
+        selected:'List',
+        path:'/list'
+    },
+    {
+        title:'Cart',
+        icon:'ShoppingTrolley',
+        selected:'ShoppingCartFull',
+        path:'/cart'
+    },
+    {
+        title:'Profile',
+        icon:'User',
+        selected:'UserFilled',
+        path:'/profile'
+    }
+]
 </script>
 <!-- <script lang="ts">
 export default {
