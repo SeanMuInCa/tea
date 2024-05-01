@@ -1,21 +1,25 @@
 <template>
     <div class="tabbar">
         <ul>
-            <li @click="router.push('/')">
-                <HomeFilled style="width: 1rem; height: 1rem; " />
+            <li @click="toHome">
+                <House style="width: 1rem; height: 1rem; " v-show="!isHome"/>
+                <HomeFilled style="width: 1rem; height: 1rem; " v-show="isHome"/>
                 <span>Home</span>
             </li>
-            <li @click="router.push('/list')">
-                <House style="width: 1rem; height: 1rem; "/>
-                <span>Home</span>
+            <li @click="toList">
+                <Document style="width: 1rem; height: 1rem; " v-show="!isList"/>
+                <List style="width: 1rem; height: 1rem; " v-show="isList"/>
+                <span>Category</span>
             </li>
-            <li @click="router.push('/cart')">
-                <House style="width: 1rem; height: 1rem; " />
-                <span>Home</span>
+            <li @click="toCart">
+                <ShoppingTrolley style="width: 1rem; height: 1rem; " v-show="!isCart"/>
+                <ShoppingCartFull style="width: 1rem; height: 1rem; " v-show="isCart"/>
+                <span>Cart</span>
             </li>
-            <li @click="router.push('/profile')">
-                <House style="width: 1rem; height: 1rem; " />
-                <span>Home</span>
+            <li @click="toProfile">
+                <User style="width: 1rem; height: 1rem; " v-show="!isProfile"/>
+                <UserFilled style="width: 1rem; height: 1rem; " v-show="isProfile"/>
+                <span>Profile</span>
             </li>
         </ul>
     </div>
@@ -23,7 +27,43 @@
 
 <script setup lang="ts">
 import router from '@/router';
-
+import{ref} from 'vue';
+const isHome = ref(true);
+const isList = ref(false);
+const isCart = ref(false);
+const isProfile = ref(false);
+const toHome = () => {
+    
+    isHome.value = true;
+    isCart.value = false;
+    isList.value = false;
+    isProfile.value = false;
+    router.push('/');
+}
+const toList = () => {
+    
+    isHome.value = false;
+    isCart.value = false;
+    isList.value = true;
+    isProfile.value = false;
+    router.push('/list');
+}
+const toCart = () => {
+    
+    isHome.value = false;
+    isCart.value = true;
+    isList.value = false;
+    isProfile.value = false;
+    router.push('/cart');
+}
+const toProfile = () => {
+    
+    isHome.value = false;
+    isCart.value = false;
+    isList.value = false;
+    isProfile.value = true;
+    router.push('/profile');
+}
 </script>
 <!-- <script lang="ts">
 export default {
