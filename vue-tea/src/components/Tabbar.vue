@@ -1,8 +1,8 @@
 <template>
     <div class="tabbar">
         <ul>
-            <li v-for="(item,index) in routes" :key="index">
-                <el-button :icon="item.icon" type="" circle  size="large"></el-button>
+            <li v-for="(item,index) in routes" :key="index" @click="switchPage(item.path)" :class="(router.currentRoute.value.fullPath === item.path) ? 'select' : ''">
+                <el-button :icon="(router.currentRoute.value.fullPath === item.path) ? item.selected : item.icon" type="" circle  size="large"></el-button>
                 <span>{{ item.title }}</span>
             </li>
         </ul>
@@ -11,7 +11,9 @@
 
 <script setup lang="ts">
 import router from '@/router';
-
+const switchPage = (path:any) => {
+    router.replace(path);
+}
 const routes = [
     {
         title:'Home',
@@ -66,6 +68,10 @@ export default {
             align-items: center;
             span{
                 font-size: .4rem;
+            }
+            &.select{
+                background-color: skyblue;
+                color:red;
             }
         }
     }
